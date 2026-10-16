@@ -1,0 +1,236 @@
+#__framer-badge-container,
+.__framer-badge {
+  display: none !important;
+}
+
+#mariachi-gallery {
+  width: 100%;
+  padding: clamp(68px, 8vw, 128px) max(26px, calc((100vw - 1440px) / 2));
+  overflow: hidden;
+  color: #e8ecf4;
+  background: #05070c;
+  font-family: "Inter Display", Inter, sans-serif;
+}
+
+.mariachi-gallery-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.mariachi-gallery-kicker {
+  margin: 0 0 15px;
+  color: #a3b5ff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+}
+
+#mariachi-gallery h2 {
+  margin: 0;
+  font-size: clamp(32px, 5vw, 72px);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -.055em;
+}
+
+.mariachi-gallery-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: none;
+}
+
+.mariachi-gallery-count {
+  margin-right: 12px;
+  color: #8f98ad;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.mariachi-gallery-controls button {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid #ffffff38;
+  border-radius: 50%;
+  color: #e8ecf4;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  font-size: 22px;
+  transition: background .25s, border-color .25s, transform .25s;
+}
+
+.mariachi-gallery-controls button:hover,
+.mariachi-gallery-controls button:focus-visible {
+  border-color: #e8ecf4;
+  background: #ffffff1f;
+  transform: scale(1.05);
+}
+
+.mariachi-gallery-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 2px;
+  scrollbar-width: thin;
+  scrollbar-color: #ffffff38 transparent;
+  -webkit-overflow-scrolling: touch;
+}
+
+.mariachi-gallery-track::after {
+  content: "";
+  flex: 0 0 max(0px, calc(100% - clamp(280px, 33vw, 440px)));
+}
+
+.mariachi-gallery-card {
+  flex: 0 0 clamp(280px, 33vw, 440px);
+  min-width: 0;
+  margin: 0;
+  scroll-snap-align: start;
+}
+
+.mariachi-gallery-image {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border: 1px solid #ffffff20;
+  border-radius: 14px;
+  background: #0b0f1b;
+}
+
+.mariachi-gallery-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 37%;
+  filter: saturate(.88) contrast(1.04);
+  transition: transform .7s cubic-bezier(.16, 1, .3, 1), filter .7s;
+}
+
+.mariachi-gallery-card:hover img {
+  transform: scale(1.035);
+  filter: saturate(1) contrast(1.03);
+}
+
+.mariachi-gallery-card figcaption {
+  display: flex;
+  gap: 14px;
+  align-items: baseline;
+  padding: 16px 2px 24px;
+  font-size: 15px;
+}
+
+.mariachi-gallery-card figcaption span {
+  color: #8f98ad;
+  font-size: 11px;
+}
+
+.mariachi-gallery-hint {
+  margin: 0;
+  color: #8f98ad;
+  font-size: 12px;
+}
+
+.mariachi-gallery-hint span { margin-left: 6px; }
+
+.mariachi-hero-rotating {
+  transition: opacity .42s ease;
+}
+
+.mariachi-about-pagination { display: none; }
+
+@media (max-width: 809px) {
+  [data-framer-name="Hero"] [data-framer-name="Name"] h1 {
+    --framer-font-size: 68px !important;
+  }
+
+  #mariachi-gallery { padding: 72px 20px; }
+  .mariachi-gallery-head { align-items: end; }
+  .mariachi-gallery-kicker { font-size: 10px; }
+  .mariachi-gallery-count { display: none; }
+  .mariachi-gallery-controls { gap: 6px; }
+  .mariachi-gallery-controls button { width: 36px; height: 36px; font-size: 18px; }
+  .mariachi-gallery-card { flex-basis: min(82vw, 400px); }
+  .mariachi-gallery-track::after { flex-basis: max(0px, calc(100% - min(82vw, 400px))); }
+  .mariachi-gallery-image { aspect-ratio: 1 / 1; }
+
+  #about [data-framer-name="Contact Sheet"] {
+    display: flex !important;
+    justify-content: flex-start !important;
+    align-items: stretch !important;
+    gap: 14px !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 0;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  #about [data-framer-name="Contact Sheet"]::-webkit-scrollbar { display: none; }
+
+  #about [data-framer-name="Contact Sheet"]::after {
+    content: "";
+    flex: 0 0 max(0px, calc(100% - 86%));
+  }
+
+  #about [data-framer-name="Contact Sheet"] > [data-framer-name^="Frame"] {
+    flex: 0 0 86% !important;
+    width: 86% !important;
+    height: auto !important;
+    scroll-snap-align: start;
+  }
+
+  #about [data-framer-name="Contact Sheet"] [data-framer-name="Photo"] {
+    width: 100% !important;
+    height: min(102vw, 480px) !important;
+    overflow: hidden;
+    border: 1px solid #ffffff20;
+    border-radius: 12px !important;
+  }
+
+  #about [data-framer-name="Contact Sheet"] [data-framer-name="Caption"] {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .mariachi-about-pagination {
+    display: flex;
+    justify-content: center;
+    gap: 9px;
+    width: 100%;
+    margin: 16px 0 8px;
+  }
+
+  .mariachi-about-pagination button {
+    width: 7px;
+    height: 7px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: #ffffff50;
+    cursor: pointer;
+    transition: width .3s, background .3s;
+  }
+
+  .mariachi-about-pagination button[aria-current="true"] {
+    width: 25px;
+    border-radius: 8px;
+    background: #e8ecf4;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mariachi-hero-rotating { transition: none; }
+  .mariachi-gallery-image img,
+  .mariachi-gallery-controls button { transition: none; }
+  .mariachi-gallery-track { scroll-behavior: auto; }
+}
