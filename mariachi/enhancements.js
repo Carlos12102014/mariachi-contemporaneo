@@ -1,7 +1,7 @@
 (() => {
   const phone = "573332333815";
-  const audioSource = "/framerusercontent.com/assets/sxAylBadedJaZEaRh44ug5ydXy0.m4a";
-  const videoSource = "/mariachi/mariachi-en-vivo.mp4";
+  const audioSource = "./framerusercontent.com/assets/sxAylBadedJaZEaRh44ug5ydXy0.m4a";
+  const videoSource = "./mariachi/mariachi-en-vivo.mp4";
   const intro = new Audio(audioSource);
   intro.preload = "auto";
   intro.volume = 0.65;
@@ -151,9 +151,9 @@
     image.dataset.mariachiHeroRotation = "true";
     image.classList.add("mariachi-hero-rotating");
     const slides = [
-      ["/mariachi/playa.jpeg", "Mariachi Contemporáneo junto al mar en Santa Marta"],
-      ["/mariachi/celebracion.jpeg", "Mariachi Contemporáneo en una celebración especial"],
-      ["/mariachi/cumpleanos.jpeg", "Mariachi Contemporáneo en una fiesta de cumpleaños"],
+      ["./mariachi/playa.jpeg", "Mariachi Contemporáneo junto al mar en Santa Marta"],
+      ["./mariachi/celebracion.jpeg", "Mariachi Contemporáneo en una celebración especial"],
+      ["./mariachi/cumpleanos.jpeg", "Mariachi Contemporáneo en una fiesta de cumpleaños"],
     ];
     slides.slice(1).forEach(([src]) => { const preload = new Image(); preload.src = src; });
     let index = 0;
@@ -205,7 +205,7 @@
       <div class="mariachi-gallery-track" tabindex="0" aria-label="Galería de Mariachi Contemporáneo">
         ${photos.map(([file, caption, alt], index) => `
           <figure class="mariachi-gallery-card">
-            <div class="mariachi-gallery-image"><img src="/mariachi/${file}" alt="${alt}" loading="lazy" decoding="async"></div>
+            <div class="mariachi-gallery-image"><img src="./mariachi/${file}" alt="${alt}" loading="lazy" decoding="async"></div>
             <figcaption><span>${String(index + 1).padStart(2, "0")}</span>${caption}</figcaption>
           </figure>
         `).join("")}
